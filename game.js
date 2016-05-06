@@ -38,13 +38,13 @@ playGame.prototype = {
           // giving some color to background
   		game.stage.backgroundColor = "#FFFFFF";
           // adding the wheel in the middle of the canvas
-  		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
+  		wheel = game.add.sprite(game.width / 2, game.height / 2, "wheel");
 wheel.width = game.width;
 wheel.height = game.width;
           // setting wheel registration point in its center
           wheel.anchor.set(0.5);
           // adding the pin in the middle of the canvas
-          pin = game.add.sprite(game.width / 2, game.width / 2, "pin");
+          pin = game.add.sprite(game.width / 2, game.height / 2, "pin");
           // setting pin registration point in its center
           pin.anchor.set(0.5);
           pin.inputEnabled = true;
@@ -75,7 +75,7 @@ wheel.height = game.width;
                canSpin = false;
                // animation tweeen for the spin: duration 3s, will rotate by (360 * rounds + degrees) degrees
                // the quadratic easing will simulate friction
-               var spinTween = game.add.tween(pin).to({
+               var spinTween = game.add.tween(wheel).to({
                     angle: 360 * rounds + degrees
                }, 3000, Phaser.Easing.Quadratic.Out, true);
                // once the tween is completed, call winPrize function

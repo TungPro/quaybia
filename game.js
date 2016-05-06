@@ -15,7 +15,7 @@ var prizeText;
 
 window.onload = function() {
      // creation of a 458x488 game
-	game = new Phaser.Game(458, 488, Phaser.AUTO, "");
+	game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.CANVAS, "");
      // adding "PlayGame" state
      game.state.add("PlayGame",playGame);
      // launching "PlayGame" state
@@ -39,6 +39,8 @@ playGame.prototype = {
   		game.stage.backgroundColor = "#FFFFFF";
           // adding the wheel in the middle of the canvas
   		wheel = game.add.sprite(game.width / 2, game.width / 2, "wheel");
+wheel.width = game.width;
+wheel.height = game.width;
           // setting wheel registration point in its center
           wheel.anchor.set(0.5);
           // adding the pin in the middle of the canvas
